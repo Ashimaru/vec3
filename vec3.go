@@ -1,4 +1,4 @@
-package mmich
+package vec3
 
 import (
 	"golang.org/x/exp/constraints"

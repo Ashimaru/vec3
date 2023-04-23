@@ -1,4 +1,4 @@
-module mmich
+module github.com/Ashimaru/vec3
 
 go 1.20
 
