@@ -102,3 +102,29 @@ func TestDivScalar(t *testing.T) {
 	test(TestVec{2, 0, 0}, 3, TestVec{2.0 / 3.0, 0, 0})
 	test(TestVec{1, 1, 1}, 3, TestVec{1.0 / 3.0, 1.0 / 3.0, 1.0 / 3.0})
 }
+
+func TestAddScalar(t *testing.T) {
+	test := func(tested TestVec, val float32, expectedResult TestVec) {
+		result := AddScalar(tested, val)
+		if result != expectedResult {
+			t.Errorf("Got %v, expected %v", result, expectedResult)
+		}
+	}
+
+	test(TestVec{1, 0, 0}, 3, TestVec{4, 3, 3})
+	test(TestVec{2, 0, 0}, 3, TestVec{5, 3, 3})
+	test(TestVec{1, 1, 1}, 3, TestVec{4, 4, 4})
+}
+
+func TestSubScalar(t *testing.T) {
+	test := func(tested TestVec, val float32, expectedResult TestVec) {
+		result := SubScalar(tested, val)
+		if result != expectedResult {
+			t.Errorf("Got %v, expected %v", result, expectedResult)
+		}
+	}
+
+	test(TestVec{1, 0, 0}, 3, TestVec{-2, -3, -3})
+	test(TestVec{2, 0, 0}, 3, TestVec{-1, -3, -3})
+	test(TestVec{1, 1, 1}, 3, TestVec{-2, -2, -2})
+}

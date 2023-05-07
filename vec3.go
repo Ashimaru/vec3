@@ -81,6 +81,14 @@ func Normalize[Num Flt](self Vec3[Num]) Vec3[Num] {
 	return Vec3[Num]{self.X / len, self.Y / len, self.Z / len}
 }
 
+func AddScalar[Num Flt](self Vec3[Num], val Num) Vec3[Num] {
+	return constwiseOp(self, val, func(a, b Num) Num { return a + b })
+}
+
+func SubScalar[Num Flt](self Vec3[Num], val Num) Vec3[Num] {
+	return constwiseOp(self, val, func(a, b Num) Num { return a - b })
+}
+
 func MulScalar[Num Flt](self Vec3[Num], val Num) Vec3[Num] {
 	return constwiseOp(self, val, func(a, b Num) Num { return a * b })
 }
